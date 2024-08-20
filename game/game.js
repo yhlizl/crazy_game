@@ -15,7 +15,8 @@ var AIController = require('./ai/AIController.js');
 var DataSync = require('./lib/DataSync.js');
 
 var Game = function (adminCode, maxUser, map, remove) {
-	this.status = C.GAME_STATUS_INIT;
+	// this.status = C.GAME_STATUS_INIT;
+	this.status = C.GAME_STATUS_PAUSE;
 	this.adminCode = adminCode;
 	this.mapConfig = map;
 	//其他人
@@ -46,7 +47,9 @@ var Game = function (adminCode, maxUser, map, remove) {
 	}, this);
 
 	this.runningTimer = setInterval(() => {
-		this.update();
+		if (this.status === C.GAME_STATUS_RUNNING) {
+			this.update();
+		}
 	}, 17);
 }
 
@@ -251,8 +254,21 @@ Game.prototype.win = function (user) {
 
 //遊戲主流程
 Game.prototype.update = function () {
+	
 	this.tick++;
 	this.map.update();
+	//user更新
+	
+	var npcCount = 0;
+	for(let user of this.users) {
+		user.update();
+		if (user.npc) {
+			npcCount++;
+		}
+	};
+	
+
+
 	//物品更新
 	for(let item of this.items) {
 		item.update();
@@ -270,15 +286,7 @@ Game.prototype.update = function () {
 			Collide.eatItem(this.users[i], this.items[j], this);
 		}
 	}
-	//user更新
-	
-	var npcCount = 0;
-	for(let user of this.users) {
-		user.update();
-		if (user.npc) {
-			npcCount++;
-		}
-	};
+
 
 	//分發狀態
 	this.sendTick();

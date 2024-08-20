@@ -56,7 +56,7 @@ app.get('/roomsData', function (req, res) {
 	res.end(JSON.stringify(Room.getRoomData()));
 });
 
-var adminCode = opts.code || 'admin';
+var adminCode = opts.code || 'user';
 Room.setConfig(adminCode);
 for (var i = 0; i < (opts.room || 1); i++) {
 	Room.createRoom("大亂鬥", true);
@@ -92,8 +92,8 @@ wss.on('connection', function (ws) {
 		return;
 	}
 
-	//房間最多30個連結
-	if (room.game.clients.length > 30) {
+	//房間最多200個連結
+	if (room.game.clients.length > 200) {
 		socket.emit('close', '房間連結已滿');
 		ws.close();
 		return;
@@ -116,7 +116,7 @@ wss.on('connection', function (ws) {
 		ws = null;
 		room = null;
 	});
-
+	
 	room.game.addClient(socket, Math.random());
 });
 

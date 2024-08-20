@@ -19,7 +19,7 @@ var app = new Vue({
 	data: {
 		message: 'INIT DONE',
 		playing: false,
-		myName: localStorage.userName || "无名小卒",
+		myName: localStorage.userName || "社會人士",
 		type: "world",
 		clientCount: 0,
 		playerCount: 0,
@@ -59,16 +59,16 @@ function parseParam () {
 var param = parseParam();
 
 var scoreText = [
-	'小试牛刀',
-	'势不可挡',
-	'正在大杀特杀',
-	'已经主宰比赛',
-	'已经杀人如麻',
-	'已经无人能挡',
-	'已经变态杀戮',
-	'已经妖怪般的杀戮',
-	'已经如同神一般',
-	'已经超越神了'
+	'小試牛刀',
+	'勢不可擋',
+	'正在大殺特殺',
+	'已經主宰比賽',
+	'已經殺人如麻',
+	'已經無人能擋',
+	'已經變態殺戮',
+	'已經妖怪般的殺戮',
+	'已經如同神一般',
+	'已經超越神了'
 ]
 
 function notice (str) {
@@ -135,17 +135,17 @@ function initViewPort () {
 		game.display.ctx.mark.scale(s, s);
 		game.display.ctx.bg.scale(s, s);
 		game.display.ctx.structs.scale(s, s);
-		game.display.ctx.fg.font="14px 宋体";
-		game.display.ctx.fg.textBaseline = 'middle';//设置文本的垂直对齐方式
-		game.display.ctx.fg.textAlign = 'center'; //设置文本的水平对对齐方式
-		game.display.ctx.mark.font="14px 宋体";
-		game.display.ctx.mark.textBaseline = 'middle';//设置文本的垂直对齐方式
-		game.display.ctx.mark.textAlign = 'center'; //设置文本的水平对对齐方式
+		game.display.ctx.fg.font="14px 宋體";
+		game.display.ctx.fg.textBaseline = 'middle';//設定文字的垂直對齊方式
+		game.display.ctx.fg.textAlign = 'center'; //設定文字的水平對對齊方式
+		game.display.ctx.mark.font="14px 宋體";
+		game.display.ctx.mark.textBaseline = 'middle';//設定文字的垂直對齊方式
+		game.display.ctx.mark.textAlign = 'center'; //設定文字的水平對對齊方式
 
-		//绘制背景
+		//繪製背景
 		drawBg(game.display.ctx.bg, game.map);
 		drawAllStructs(game.display.ctx.structs);
-		//初始化尸体
+		//初始化屍體
 		for (var i = 0; i < game.bodies.length; i++) {
 			var user = Packs.userPack.decode(game.bodies[i]);
 			drawUser(game.display.ctx.mark, user);
@@ -159,7 +159,7 @@ function initDone () {
 	socket.emit('init', {
 		userName: app.myName
 	});
-	//初始化链接，监听事件（打开或刷新页面触发，也可能由后台重启触发）
+	//初始化連結，監聽事件（開啟或重新整理頁面觸發，也可能由後臺重啟觸發）
 	socket.on('init', function (data) {
 		Effect.clean();
 		P = data.props	//常量
@@ -208,12 +208,12 @@ function initDone () {
 		for (var i = 0; i < data.entitys.length; i++) {
 			data.entitys[i] = Packs.entityPack.decode(data.entitys[i]);
 		}
-		//更新游戏渲染
+		//更新遊戲渲染
 
 		if (!game.beginRender) {return}
 		render(game.display.ctx.fg, data);
 		drawStructs(game.display.ctx.structs);
-		//发送控制
+		//傳送控制
 		var control = JSON.stringify(Packs.controlPack.encode(p1));
 		if (controlCache != control) {
 			controlCache = control;
@@ -359,10 +359,10 @@ for (var key in imgUrls) {
 	}
 }
 
-//绘制背景
+//繪製背景
 function drawBg (ctx, map) {
 	ctx.clearRect(0, 0, P.w, P.h);
-	//绘制柱子
+	//繪製柱子
 	map.pilla.forEach(function (pilla) {
 		ctx.fillStyle = "#888";
 		for (var j = P.h - pilla.y2*C.TH + 10; j < P.h - pilla.y1*C.TH; j += 20) {
@@ -389,7 +389,7 @@ function drawBg (ctx, map) {
 		ctx.fill();
 	});
 
-	//绘制地板
+	//繪製地板
 	for (var i = 0; i < map.floor.length; i++) {
 		for (var j = 0; j < map.floor[i].length; j++) {
 			var x = j * C.TW;
@@ -580,7 +580,7 @@ function drawUser (ctx, user) {
 		var img = imgs.normal;
 	}
 
-	//用户说话
+	//使用者說話
 	
 
 
@@ -610,7 +610,7 @@ function drawUser (ctx, user) {
 		ctx.restore();
 	}
 	
-	//用户指示器
+	//使用者指示器
 	if (user.id == app.me) {
 		ctx.fillStyle = "#ffa";
 	} else if (user.team && user.team == app.team) {
@@ -666,10 +666,10 @@ function drawUser (ctx, user) {
 		if (!user.dead) {
 			ctx.scale(user.faceing, 1);
 			var x = user.faceing * (P.userWidth/2 + 10)
-			ctx.font="28px 宋体";
+			ctx.font="28px 宋體";
 			ctx.fillStyle = "#ff0";
 			ctx.fillText(Math.floor(user.carryCount*17/1000) + 1, x, -P.userHeight - 10);
-			ctx.font="14px 宋体";
+			ctx.font="14px 宋體";
 			ctx.scale(user.faceing, 1);
 		}
 	}

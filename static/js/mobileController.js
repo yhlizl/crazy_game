@@ -1,4 +1,4 @@
-//移动的控制器
+//移動的控制器
 var p1 = {
 	upDown: 0,
 	downDown: 0,

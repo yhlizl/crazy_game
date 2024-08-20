@@ -93,6 +93,12 @@
 			<div class="tabpage" data-target="config">
 				<a class="btn btn-heap">heapdump</a>
 			</div>
+			<div class="tabpage" data-target="config">
+				<a class="btn btn-start">開始遊戲</a>
+			</div>
+			<div class="tabpage" data-target="config">
+				<a class="btn btn-stop">結束遊戲</a>
+			</div>
 		</div>
 	</div>
 	
@@ -194,6 +200,14 @@
 	$('.btn-heap').click(function () {
 		socket.emit('heapdump');
 	})
+	$('.btn-start').click(function () {
+		console.log('start')
+		socket.emit('start');
+	})
+	$('.btn-stop').click(function () {
+		socket.emit('stop');
+	})
+
 
 	$.ajax({
 		url: "/roomsData",

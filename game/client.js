@@ -81,6 +81,16 @@ Client.prototype.connect = function () {
 					client.banned = false;
 					banedip[client.ip] = false;
 				});
+				socket.on('start', type => {
+					console.log(this.game)
+					// console.log("data", data)
+					// console.log("this",this)
+					// console.log(this.game.sync)
+					
+					this.game.status= 2
+					this.game.sync.schema.maxUser=0
+					// this.game.sync.obj.store.maxUser=0
+				});
 			}
 		}
 		if (data.userName) {
@@ -109,6 +119,10 @@ Client.prototype.connect = function () {
 		}
 		if (playerCount >= this.game.maxUser) {
 			socket.emit('joinFail', "加入失敗，伺服器已滿");
+			return;
+		}
+		if (this.game.status===2){
+			socket.emit('joinFail', "遊戲已經開始");
 			return;
 		}
 		if (this.p1 && !this.p1.dieing && !this.p1.dead) {return}

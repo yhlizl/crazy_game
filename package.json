@@ -3,9 +3,6 @@
   "description": "a html5 mutiplayer game",
   "version": "1.3.0",
   "private": false,
-  "repository": {
-    "type": "git",
-  },
   "engines": {
     "node": ">=4"
   },

@@ -1,5 +1,5 @@
-//5毛钱特效
-//effect 是由事件触发的，临时的，逻辑无关效果。如爆炸后的效果、喷出气体等
+//5毛錢特效
+//effect 是由事件觸發的，臨時的，邏輯無關效果。如爆炸後的效果、噴出氣體等
 var Smoke = function (x, y, size, life) {
 	this.life = Math.floor(life);
 	this.totalLife = Math.random()*60 + 30;
@@ -60,9 +60,9 @@ Flare.prototype.draw = function (ctx) {
 	ctx.save();
 	ctx.translate(this.x, P.h - this.y);
 	ctx.fillStyle = "#fff";
-	ctx.font="34px 宋体";
+	ctx.font="34px 宋體";
 	ctx.fillText(this.txt, 0, this.life - 80);
-	ctx.font="14px 宋体";
+	ctx.font="14px 宋體";
 	var _this = this;
 	this.smokes.forEach(function (smoke) {
 		smoke.life++;
@@ -93,9 +93,9 @@ Toast.prototype.draw = function (ctx) {
 	ctx.translate(this.x, P.h - this.y);
 	ctx.scale(Math.min(this.t/5, 1),Math.min(this.t/5, 1));
 	ctx.fillStyle = "#fff";
-	ctx.font = this.size + "px 宋体";
+	ctx.font = this.size + "px 宋體";
 	ctx.fillText(this.txt, 0, this.dy);
-	ctx.font ="14px 宋体";
+	ctx.font ="14px 宋體";
 	ctx.restore();
 }
 
@@ -172,10 +172,10 @@ ItemDead.prototype.draw = function (ctx) {
 	ctx.stroke();
 
 
-	ctx.font = (1600 - this.life*this.life)/160 + 12 + "px 宋体";
+	ctx.font = (1600 - this.life*this.life)/160 + 12 + "px 宋體";
 	ctx.fillStyle = "#fff";
 	ctx.fillText(this.name, this.item.x, P.h - this.item.y);
-	ctx.font="14px 宋体";
+	ctx.font="14px 宋體";
 }
 
 var ShotLine = function (x, y ,dir) {

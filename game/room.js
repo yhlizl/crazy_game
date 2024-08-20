@@ -24,7 +24,7 @@ var Room = {
 		this.code = code;
 	},
 	createRoom: function (type, presist) {
-		var maxUser = 6;
+		var maxUser = 200;
 		
 		var room = {
 			id: roomID++,
