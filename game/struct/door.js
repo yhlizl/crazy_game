@@ -12,18 +12,18 @@ var Door = function (game, data) {
 		type: "door",
 		x: data.x,
 		y: data.y,
-		message: "AI传送门，使用空格键开启/关闭",
-		working: 0, //运行
-		workingTime: data.workingTime || 80, //工作耗时
-		coolingTime: data.coolingTime || 2000, //冷却耗时
-		cooling: 0, //冷却
-		opening: data.opening == undefined ? true : data.opening, //开启状态
+		message: "AI傳送門，使用空格鍵開啟/關閉",
+		working: 0, //執行
+		workingTime: data.workingTime || 80, //工作耗時
+		coolingTime: data.coolingTime || 2000, //冷卻耗時
+		cooling: 0, //冷卻
+		opening: data.opening == undefined ? true : data.opening, //開啟狀態
 	}, this);
 	
-	//最多使用几次
+	//最多使用幾次
 	this.count = data.count;
 	
-	//同时最多控制多少npc
+	//同時最多控制多少npc
 	this.liveCount = data.liveCount;
 
 	this.npcConfig = data.npcConfig;

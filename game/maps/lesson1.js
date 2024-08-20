@@ -43,37 +43,37 @@ var map = {
 			type: "sign",
 			x: 2,
 			y: 1,
-			message: "A,D 左右移动"
+			message: "A,D 左右移動"
 		}, {
 			type: "sign",
 			x: 10,
 			y: 1,
-			message: "如果你掉进水中就会失败，你需要按W跳过去"
+			message: "如果你掉進水中就會失敗，你需要按W跳過去"
 		}, {
 			type: "sign",
 			x: 17,
 			y: 1,
-			message: "走到梯子上，按W,S上下层"
+			message: "走到梯子上，按W,S上下層"
 		}, {
 			type: "sign",
 			x: 14,
 			y: 5,
-			message: "对于宽阔的缝隙，你需要助跑并跳过去"
+			message: "對於寬闊的縫隙，你需要助跑並跳過去"
 		}, {
 			type: "sign",
 			x: 8,
 			y: 5,
-			message: "目标：消灭王二狗"
+			message: "目標：消滅王二狗"
 		}, {
 			type: "sign",
 			x: 7,
 			y: 9,
-			message: "利用与对手的碰撞，把敌人推进水中"
+			message: "利用與對手的碰撞，把敵人推進水中"
 		}, {
 			type: "sign",
 			x: 10,
 			y: 9,
-			message: "碰撞的效果取决于双方的姿势，通常下蹲和跳起方可以获得优势"
+			message: "碰撞的效果取決於雙方的姿勢，通常下蹲和跳起方可以獲得優勢"
 		}
 	],
 	hooks: {

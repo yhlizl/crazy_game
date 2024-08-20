@@ -44,65 +44,65 @@ var map = {
 	npcs: [{
 		x: 13,
 		y: 1,
-		name: "坏人甲",
+		name: "壞人甲",
 		carry: 1,
 		carryCount: 9999999,
 	}, {
 		x: 15,
 		y: 1,
-		name: "坏人乙",
+		name: "壞人乙",
 		carry: 1,
 		carryCount: 9999999,
 	}, {
 		x: 7,
 		y: 4,
-		name: "坏人丙",
+		name: "壞人丙",
 		carry: 1,
 		carryCount: 9999999,
 		AI: "walking"
 	}, {
 		x: 7,
 		y: 8,
-		name: "坏人丁",
+		name: "壞人丁",
 		carry: 2,
 		carryCount: 9999999,
 		AI: "walking"
 	}, {
 		x: 9,
 		y: 10,
-		name: "龙套A",
+		name: "龍套A",
 	}, {
 		x: 14,
 		y: 10,
-		name: "龙套B",
+		name: "龍套B",
 	}, {
 		x: 25,
 		y: 10,
-		name: "龙套C",
+		name: "龍套C",
 	}, {
 		x: 23,
 		y: 10,
-		name: "龙套D",
+		name: "龍套D",
 	}, {
 		x: 21,
 		y: 10,
-		name: "龙套E",
+		name: "龍套E",
 	}],
 	structs: [{
 			type: "sign",
 			x: 5,
 			y: 1,
-			message: "使用各种物品可以帮你更有效的消灭敌人"
+			message: "使用各種物品可以幫你更有效的消滅敵人"
 		}, {
 			type: "sign",
 			x: 7,
 			y: 1,
-			message: "手枪是一种强力的远程武器，可以用于消灭你正前方的敌人"
+			message: "手槍是一種強力的遠端武器，可以用於消滅你正前方的敵人"
 		}, {
 			type: "sign",
 			x: 9,
 			y: 1,
-			message: "拿到手枪后，按q使用开火，注意只有三发子弹"
+			message: "拿到手槍後，按q使用開火，注意只有三發子彈"
 		}, {
 			type: "itemGate",
 			x: 8,
@@ -117,7 +117,7 @@ var map = {
 			type: "sign",
 			x: 21,
 			y: 4,
-			message: "地雷可以被埋在地上，碰到他的人会被炸飞"
+			message: "地雷可以被埋在地上，碰到他的人會被炸飛"
 		}, {
 			type: "sign",
 			x: 20,
@@ -137,12 +137,12 @@ var map = {
 			type: "sign",
 			x: 8,
 			y: 6,
-			message: "碰到毒药的人会死亡，离他们远一些"
+			message: "碰到毒藥的人會死亡，離他們遠一些"
 		}, {
 			type: "sign",
 			x: 15,
 			y: 6,
-			message: "隐身将会使你的敌人无法看到你"
+			message: "隱身將會使你的敵人無法看到你"
 		}, {
 			type: "itemGate",
 			x: 17,
@@ -157,12 +157,12 @@ var map = {
 			type: "sign",
 			x: 7,
 			y: 10,
-			message: "无敌是一件强大的武器，其他弱者们碰到你会被弹飞"
+			message: "無敵是一件強大的武器，其他弱者們碰到你會被彈飛"
 		}, {
 			type: "sign",
 			x: 11,
 			y: 10,
-			message: "目标：消灭其他所有人"
+			message: "目標：消滅其他所有人"
 		}
 	],
 	hooks: {

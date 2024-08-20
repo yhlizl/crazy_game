@@ -22,27 +22,27 @@ var Game = function (adminCode, maxUser, map, remove) {
 	this.users = [];
 	//A方面
 	this.teams = [];
-	//所有连接，包括ob
+	//所有連線，包括ob
 	this.clients = [];
 	this.deadClients = [];
 	//物品
 	this.items = [];
-	//尸体
+	//屍體
 	this.bodies = [];
 	//地雷
 	this.mines = [];
-	//投掷物
+	//投擲物
 	this.entitys = [];
 	this.tick = 0;
 	this.remove = remove;
-	this.structs = []; //预先建筑列表，map使用
+	this.structs = []; //預先建築列表，map使用
 	this.createMap();
-	//会与客户端同步的数据
+	//會與客戶端同步的資料
 	this.sync = new DataSync({
-		clientCount: 0,  // 当前玩家数量
+		clientCount: 0,  // 當前玩家數量
 		type: this.map.type,
-		structs: this.structs, // 建筑列表
-		maxUser: maxUser //最多玩家数量
+		structs: this.structs, // 建築列表
+		maxUser: maxUser //最多玩家數量
 	}, this);
 
 	this.runningTimer = setInterval(() => {
@@ -105,7 +105,7 @@ Game.prototype.createUser = function (client) {
 	this.users.push(u);
 	return u;
 }
-//获得玩家（或者尸体）
+//獲得玩家（或者屍體）
 Game.prototype.getUser = function (uid) {
 	for (let user of this.users) {
 		if (user.id == uid) {
@@ -124,7 +124,7 @@ Game.prototype.createItem = function (type) {
 	this.items.push(item);
 	return item;
 }
-//发生爆炸
+//發生爆炸
 Game.prototype.explode = function (x, y, byUser, power) {
 	for (let user of this.users) {
 		var ux = user.x;
@@ -144,7 +144,7 @@ Game.prototype.explode = function (x, y, byUser, power) {
 	this.announce('explode', {x: x, y: y, power: power});
 }
 
-//发生枪击
+//發生槍擊
 Game.prototype.checkShot = function (u) {
 	var game = this;
 	var x = u.x;
@@ -192,7 +192,7 @@ Game.prototype.checkMine = function (user) {
 	return false;
 }
 
-//链接
+//連結
 Game.prototype.addClient = function (socket, UUID) {
 	for (var i = 0; i < this.deadClients.length; i++) {
 		if (this.deadClients[i].UUID == UUID) {
@@ -208,7 +208,7 @@ Game.prototype.addClient = function (socket, UUID) {
 	this.clients.push(client);
 	this.clientCount++;
 }
-//链接关闭
+//連結關閉
 Game.prototype.removeClient = function (socket) {
 	for (var i = 0; i < this.clients.length; i++) {
 		if (this.clients[i].socket == socket) {
@@ -225,7 +225,7 @@ Game.prototype.removeClient = function (socket) {
 		}
 	}
 }
-//获得链接
+//獲得連結
 Game.prototype.getClient = function (cid) {
 	for (let client of this.clients) {
 		if (client.id == cid) {
@@ -234,7 +234,7 @@ Game.prototype.getClient = function (cid) {
 	}
 }
 
-//分发事件
+//分發事件
 Game.prototype.announce = function (type, data) {
 	for (let client of this.clients) {
 		client.socket.emit(type, data);
@@ -249,7 +249,7 @@ Game.prototype.win = function (user) {
 	}, 1000);
 }
 
-//游戏主流程
+//遊戲主流程
 Game.prototype.update = function () {
 	this.tick++;
 	this.map.update();
@@ -257,11 +257,11 @@ Game.prototype.update = function () {
 	for(let item of this.items) {
 		item.update();
 	}
-	//实体更新
+	//實體更新
 	for(let entity of this.entitys) {
 		entity.update();
 	}
-	//碰撞检测
+	//碰撞檢測
 	for (var i = 0; i < this.users.length; i++) {
 		for (var j = i + 1; j < this.users.length; j++) {
 			Collide.userCollide(this.users[i], this.users[j], this);
@@ -280,7 +280,7 @@ Game.prototype.update = function () {
 		}
 	};
 
-	//分发状态
+	//分發狀態
 	this.sendTick();
 	//清理死亡的人物/物品
 	this.clean();

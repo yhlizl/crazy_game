@@ -11,33 +11,33 @@ var User = function (game, client) {
 	this.name = client.name;
 	this.team = client.team;
 	
-	//状态
+	//狀態
 	this.onFloor = false;
 	this.onPilla = false;
 	this.nearPilla = false;
-	//滚动
+	//滾動
 	this.rolling = false;
 	//下蹲
 	this.crawl = false;
 	//僵直中
 	this.danger = false;
-	//已死亡，尸体下落中
+	//已死亡，屍體下落中
 	this.dieing = false;
-	//已死亡，躺尸
+	//已死亡，躺屍
 	this.dead = false;
 	this.faceing = 1;
 
-	//刚刚碰撞过哪些用户
+	//剛剛碰撞過哪些使用者
 	this.ignore = [];
 
-	//携带物品
+	//攜帶物品
 	this.carry = '';
 	this.carryCount = 0;
 
-	//所在的设施
+	//所在的設施
 	this.onStruct = null;
 
-	//施法动作（倒计时时间）
+	//施法動作（倒計時時間）
 	this.fireing = 0;
 	this.mining = 0;
 	this.grenadeing = 0;
@@ -50,20 +50,20 @@ var User = function (game, client) {
 	this.AIConfig = client.AI;
 
 
-	//坐标
+	//座標
 	this.x = 0;
 	this.y = 0;
-	//栅格坐标
+	//柵格座標
 	this.tx = 0;
 	this.ty = 0;
-	//栅格偏移坐标
+	//柵格偏移座標
 	this.tox = 0;
 	this.toy = 0;
 	//速度
 	this.vx = 0;
 	this.vy = 0;
 	
-	//管理员下的监控指标
+	//管理員下的監控指標
 	this.watchData = {}
 }
 User.prototype.throwGrenade = function () {
@@ -171,7 +171,7 @@ User.prototype.update = function () {
 	for (var key in this.ignore) {
 		this.ignore[key]--;
 	}
-	//时限
+	//時限
 	if (this.carry == Pack.items.power.id || this.carry == Pack.items.hide.id || this.carry == Pack.items.bomb.id) {
 		this.carryCount--;
 		if (this.carryCount <= 0) {
@@ -203,7 +203,7 @@ User.prototype.update = function () {
 	
 	
 	if (this.status == "falling" || this.status == "standing" || this.status == "climbing") {
-		//开枪	
+		//開槍	
 		if (this.fireing > 0) {
 			this.fireing--;
 			if (this.fireing == 5) {
@@ -437,29 +437,29 @@ User.prototype.killed = function (action, byUser) {
 
 	if (killer) {
 		if (action == 'drug') {
-			var message = "<b>" + killer.name + "</b>让<b>" + this.name + "</b>品尝到了毒药的滋味";
+			var message = "<b>" + killer.name + "</b>讓<b>" + this.name + "</b>品嚐到了毒藥的滋味";
 		} else if (action == 'mine') {
 			if (this.killer == this.id) {
-				var message = "<b>" + killer.name + "</b>用自己的身体检验了地雷的可靠性，结果很成功";
+				var message = "<b>" + killer.name + "</b>用自己的身體檢驗了地雷的可靠性，結果很成功";
 			} else {
-				var message = "<b>" + killer.name + "</b>的地雷让<b>" + this.name + "</b>的菊花一紧";
+				var message = "<b>" + killer.name + "</b>的地雷讓<b>" + this.name + "</b>的菊花一緊";
 			}
 		} else if (action == 'gun') {
-			var message = "<b>" + killer.name + "</b>开枪了，<b>" + this.name + "</b>应声倒地";
+			var message = "<b>" + killer.name + "</b>開槍了，<b>" + this.name + "</b>應聲倒地";
 		} else if (action == 'power') {
-			var message = "<b>" + killer.name + "</b>把<b>" + this.name + "</b>扔进了泥潭";
+			var message = "<b>" + killer.name + "</b>把<b>" + this.name + "</b>扔進了泥潭";
 		} else if (action == 'bomb') {
-			var message = "<b>" + this.name + "</b>没能从爆炸中逃生";
+			var message = "<b>" + this.name + "</b>沒能從爆炸中逃生";
 		} else {
-			var message = "<b>" + killer.name + "</b>把<b>" + this.name + "</b>扔进了泥潭";
+			var message = "<b>" + killer.name + "</b>把<b>" + this.name + "</b>扔進了泥潭";
 		}
 	} else {
 		if (action == 'drug') {
-			var message = "<b>" + this.name + "</b>尝了一口毒药";
+			var message = "<b>" + this.name + "</b>嚐了一口毒藥";
 		} else if (action == 'system') {
-			var message = "<b>" + this.name + "</b>被时空管理局消灭";
+			var message = "<b>" + this.name + "</b>被時空管理局消滅";
 		} else {
-			var message = "<b>" + this.name + "</b>完成了华丽的一跃";
+			var message = "<b>" + this.name + "</b>完成了華麗的一躍";
 		}
 	}
 

@@ -13,7 +13,7 @@ var Client = function (socket, game, UUID) {
 	this.game = game;
 	this.UUID = UUID;
 	this.admin = false;
-	this.name = '无名小卒';
+	this.name = '工程師';
 	this.joinTime = new Date().getTime();
 	this.ip = socket.ip;
 	
@@ -21,7 +21,7 @@ var Client = function (socket, game, UUID) {
 	this.death = 0;
 	this.highestKill = 0;
 
-	//会与客户端同步的数据
+	//會與客戶端同步的資料
 	this.sync = new DataSync({
 		me: null,
 		onStruct: null,
@@ -57,7 +57,7 @@ Client.prototype.isAdmin = function () {
 }
 Client.prototype.connect = function () {
 	var socket = this.socket;
-	//接收初始化数据
+	//接收初始化資料
 	socket.on('init', data => {
 		//admin
 		if (data.code != undefined) {
@@ -87,7 +87,7 @@ Client.prototype.connect = function () {
 			this.name = data.userName.replace(/[<>]/g, '').substring(0, 8);
 		}
 
-		//初始化数据
+		//初始化資料
 		var bodiesData = [];
 		for (let body of this.game.bodies) {
 			bodiesData.push(body.getData());
@@ -108,7 +108,7 @@ Client.prototype.connect = function () {
 			}
 		}
 		if (playerCount >= this.game.maxUser) {
-			socket.emit('joinFail', "加入失败，服务器已满");
+			socket.emit('joinFail', "加入失敗，伺服器已滿");
 			return;
 		}
 		if (this.p1 && !this.p1.dieing && !this.p1.dead) {return}
@@ -143,7 +143,7 @@ Client.prototype.connect = function () {
 		if (this.isAdmin()) {
 			this.game.createMap();
 		} else {
-			this.game.announce('message', [this.p1.id,"希望更换地图"]);
+			this.game.announce('message', [this.p1.id,"希望更換地圖"]);
 		}
 	})
 }

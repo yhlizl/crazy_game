@@ -3,11 +3,11 @@ var Pack = require('../static/js/JPack.js');
 var C = require('../static/js/const.js');
 
 function userCollide(a, b, game) {
-	//不碰撞情况
+	//不碰撞情況
 	if (a.dead || b.dead) {return}
 	if((a.x-b.x)*(a.x-b.x) + (a.y-b.y)*(a.y-b.y) > game.props.userWidth*game.props.userWidth) {return;}
 
-	//带电情况
+	//帶電情況
 	if (a.carry == Pack.items.power.id && b.carry != Pack.items.power.id) {
 		b.killed('power', a);
 		b.vx = (b.x - a.x)/2;
@@ -30,7 +30,7 @@ function userCollide(a, b, game) {
 		a.carry = '';
 		b.carry = '';
 	}
-	//排除刚刚碰撞
+	//排除剛剛碰撞
 	if (a.ignore[b.id] > 0 || b.ignore[a.id] > 0) {return}
 	
 	if (b.carry == Pack.items.bomb.id && a.carry != Pack.items.bomb.id) {
@@ -42,7 +42,7 @@ function userCollide(a, b, game) {
 		b.carryCount = a.carryCount;
 		a.carry = '';
 	}
-	//正常情况
+	//正常情況
 	if (a.onFloor && b.onFloor) {
 		if (a.crawl && !b.crawl) {
 			b.vy = 5;

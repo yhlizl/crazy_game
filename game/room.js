@@ -4,7 +4,7 @@ var Game = require('./game.js');
 var roomID = 1;
 var rooms = [];
 
-//定期回收房间
+//定期回收房間
 setInterval(function () {
 	for (var i = 0; i < rooms.length; i++) {
 		if (rooms[i].game.clients.length == 0 && !rooms[i].presist) {

@@ -23,7 +23,7 @@ app.use('/invite', express.static('invite'));
 app.use('/build', express.static('build'));
 
 //app.use(cookieParser());
-//游戏地址
+//遊戲地址
 app.get('/', function (req, res) {
 	// var UUID = req.cookies.UUID;
 	// if (!UUID || true) {
@@ -32,7 +32,7 @@ app.get('/', function (req, res) {
 	// }
 	res.sendFile(__dirname + '/static/index.html');
 });
-//游戏地址
+//遊戲地址
 app.get('/rooms', function (req, res) {
 	res.sendFile(__dirname + '/static/rooms.html');
 });
@@ -42,7 +42,7 @@ app.get('/admin', function (req, res) {
 });
 
 
-//游戏地址
+//遊戲地址
 app.get('/createRoom', function (req, res) {
 	var type = req.query.type;
 	var room = Room.createRoom(type);
@@ -50,7 +50,7 @@ app.get('/createRoom', function (req, res) {
 	res.end(room.id+"");
 });
 
-//获取房间列表
+//獲取房間列表
 app.get('/roomsData', function (req, res) {
 	res.writeHead(200, { 'Content-Type': 'text/plain' });
 	res.end(JSON.stringify(Room.getRoomData()));
@@ -59,7 +59,7 @@ app.get('/roomsData', function (req, res) {
 var adminCode = opts.code || 'admin';
 Room.setConfig(adminCode);
 for (var i = 0; i < (opts.room || 1); i++) {
-	Room.createRoom("大乱斗", true);
+	Room.createRoom("大亂鬥", true);
 }
 
 wss.on('connection', function (ws) {
@@ -87,14 +87,14 @@ wss.on('connection', function (ws) {
 	}
 
 	if (!room) {
-		socket.emit('close', '未找到房间');
+		socket.emit('close', '未找到房間');
 		ws.close();
 		return;
 	}
 
-	//房间最多30个链接
+	//房間最多30個連結
 	if (room.game.clients.length > 30) {
-		socket.emit('close', '房间链接已满');
+		socket.emit('close', '房間連結已滿');
 		ws.close();
 		return;
 	}
