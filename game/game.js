@@ -292,6 +292,16 @@ Game.prototype.update = function () {
 	this.sendTick();
 	//清理死亡的人物/物品
 	this.clean();
+
+	// win
+	if (this.users.length <= 1) {
+		for (let user of this.users) {
+			if (!user.dead) {
+				this.win(user);
+			}
+		}
+	}
+
 }
 Game.prototype.clean = function () {
 	for(var i = this.items.length - 1; i >= 0; i--) {
