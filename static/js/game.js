@@ -26,6 +26,7 @@ var app = new Vue({
 		maxUser: 0,
 		win: false,
 		logs: [],
+		winner : {},
 		viewport: {
 			scale: 1,
 			w: 1,
@@ -255,8 +256,15 @@ function initDone () {
 		}
 	});
 
-	socket.on('win', function () {
+	socket.on('win', function (name) {
 		app.win = true;
+		app.playing = false;
+		app.winner = name;
+		app.$nextTick(() => {
+			// 這個回調將在 DOM 更新後被調用
+			console.log("get win this",this,p1,app)
+			console.log("name",name)
+		})
 	})
 
 	socket.on('globalSync', function (data) {

@@ -245,7 +245,7 @@ Game.prototype.announce = function (type, data) {
 }
 
 Game.prototype.win = function (user) {
-	this.announce('win', user.id);
+	this.announce('win', user);
 	setTimeout(() => {
 		clearInterval(this.runningTimer);
 		this.remove && this.remove(this);
@@ -297,7 +297,9 @@ Game.prototype.update = function () {
 	if (this.users.length <= 1) {
 		for (let user of this.users) {
 			if (!user.dead) {
-				this.win(user);
+				console.log("who is winner",user)
+				this.win(user.name);
+				this.status = C.GAME_STATUS_OVER
 			}
 		}
 	}

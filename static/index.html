@@ -16,12 +16,13 @@
 		<canvas id="fg" v-bind:width="viewport.w" v-bind:height="viewport.h"></canvas>
 	</div>
 
-	<div class="win" v-if="!win">
-		<div class="popup">任務完成</div>
-		<!-- <a class="btn btn-block" href="./rooms">返回</a> -->
+	<div class="win" v-if="win">
+		<div class="popup">任務完成 - {{ winner }}</div>
+		<a class="btn btn-block" href="./rooms">返回</a>
 	</div>
 
 	<div class="joining" v-if="!playing"><div class="center">
+		<div class="popup">本輪勝利者 {{ winner }}</div>
 		<h4 class="message">加入遊戲</h4>
 		你的YT名字：<input id="name-input" class="txt-input" placeholder="社畜" v-model="myName"/>
 		<div>
