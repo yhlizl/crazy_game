@@ -59,12 +59,12 @@ var Packs = {
 	items: {
 		power: {
 			id: 1,
-			name: "无敌",
+			name: "無敵",
 			count: 1000
 		}, 
 		gun: {
 			id: 2,
-			name: "枪",
+			name: "槍",
 			count: 3
 		},
 		mine: {
@@ -74,16 +74,16 @@ var Packs = {
 		},
 		drug: {
 			id: 4,
-			name: "毒药"
+			name: "毒藥"
 		},
 		hide: {
 			id: 5,
-			name: "隐身",
+			name: "隱身",
 			count: 1000
 		},
 		bomb: {
 			id: 6,
-			name: "惊喜！",
+			name: "驚喜！",
 			count: 550
 		},
 		doublejump: {
@@ -92,7 +92,7 @@ var Packs = {
 		},
 		flypack: {
 			id: 8,
-			name: "喷气背包",
+			name: "噴氣揹包",
 			count: 250
 		},
 		grenade: {
