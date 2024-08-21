@@ -172,7 +172,7 @@ var map = {
 					return;
 				}
 			}
-			game.win({id: 0});
+			game.win(u.name);
 		}
 	}
 }

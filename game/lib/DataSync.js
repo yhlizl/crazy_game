@@ -1,4 +1,4 @@
-//数据增量修改记录器
+//資料增量修改記錄器
 
 function DataSync (schema, obj) {
 	this.schema = schema;

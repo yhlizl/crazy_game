@@ -79,7 +79,7 @@ var map = {
 	hooks: {
 		onKilled: function (game, u) {
 			if (u.npc) {
-				game.win(u);
+				game.win(u.name);
 			}
 		}
 	}

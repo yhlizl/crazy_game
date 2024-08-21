@@ -68,7 +68,6 @@ Game.prototype.createMap = function () {
 	} else {
 		this.map = new Map(this);
 	}
-
 	this.props = {
 		userHeight: 40,
 		userWidth: 40,
