@@ -10,6 +10,8 @@ var structs = {
 var Map = function (game, data) {
 	this.game = game;
 	this.structID = 1;
+	console.log("game", game)
+	console.log("data", data)
 	if (data) {
 		this.type = data.type;
 		this.w = data.w;
@@ -38,8 +40,8 @@ var Map = function (game, data) {
 	} else {
 		this.type = "world";
 		//random map
-		var w = this.w = 28;
-		var h = this.h = 15;
+		var w = this.w = 80;
+		var h = this.h = 45;
 		this.floor = [];
 		this.pilla = [];
 		this.hooks = {};
