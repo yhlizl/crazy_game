@@ -91,6 +91,13 @@ Client.prototype.connect = function () {
 					this.game.sync.schema.maxUser=0
 					// this.game.sync.obj.store.maxUser=0
 				});
+				socket.on('addRoom', type => {
+					console.log("add room:",this.game)
+					this.game.status= 1
+					this.game.sync.schema.maxUser=200
+					// this.game.sync.obj.store.maxUser=0
+					console.log("add room end")
+				});
 			}
 		}
 		if (data.userName) {

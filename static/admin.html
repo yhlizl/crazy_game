@@ -97,6 +97,9 @@
 				<a class="btn btn-start">開始遊戲</a>
 			</div>
 			<div class="tabpage" data-target="config">
+				<a class="btn btn-add-room">新增房間</a>
+			</div>
+			<div class="tabpage" data-target="config">
 				<a class="btn btn-stop">結束遊戲</a>
 			</div>
 		</div>
@@ -206,6 +209,9 @@
 	})
 	$('.btn-stop').click(function () {
 		socket.emit('stop');
+	})
+	$('.btn-add-room').click(function () {
+		socket.emit('addRoom');
 	})
 
 
