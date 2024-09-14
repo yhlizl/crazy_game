@@ -19,5 +19,9 @@
     "gulp-csso": "^2.0.0",
     "gulp-uglify": "^2.0.1",
     "pump": "^1.0.2"
+  },
+  "scripts": {
+    "build": "gulp",
+    "start": "node app.js port=80 code=admin"
   }
 }
