@@ -229,6 +229,14 @@ input::-webkit-input-placeholder {
 	top: 0;
 	bottom: 0;
 }
+
+@media (max-width: 768px) {
+    .mobileController {
+        display: block; /* 手機設備顯示 */
+    }
+}
+
+
 .mobileController .left {
 	position: absolute;
 	left: 20px;
