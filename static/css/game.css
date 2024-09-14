@@ -44,6 +44,7 @@ canvas {
 	display: -webkit-box;
 	-webkit-box-align: center;
 	-webkit-box-pack: center;
+	z-index: 1000;
 }
 .joining .center {
 	padding: 40px 80px;
@@ -223,11 +224,12 @@ input::-webkit-input-placeholder {
 	-webkit-animation: popup 1s;
 }
 .mobileController {
-	position: absolute;
+	position: fixed;
 	left: 0;
 	right: 0;
 	top: 0;
 	bottom: 0;
+	z-index: 100;
 }
 
 .mobileController .left {
