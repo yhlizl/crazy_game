@@ -59,10 +59,10 @@ Client.prototype.connect = function () {
 	var socket = this.socket;
 	//接收初始化資料
 	socket.on('init', data => {
-		console.log("init", data);
+		// console.log("init", data);
 		//admin
 		if (data.code != undefined) {
-			console.log("admin code:", data.code);
+			// console.log("admin code:", data.code);
 			if (data.code != this.game.adminCode) {
 				console.log("admin fail");
 				socket.emit('initFail');
@@ -85,7 +85,7 @@ Client.prototype.connect = function () {
 					banedip[client.ip] = false;
 				});
 				socket.on('start', type => {
-					console.log(this.game)
+					// console.log(this.game)
 					// console.log("data", data)
 					// console.log("this",this)
 					// console.log(this.game.sync)
@@ -95,11 +95,11 @@ Client.prototype.connect = function () {
 					// this.game.sync.obj.store.maxUser=0
 				});
 				socket.on('addRoom', type => {
-					console.log("add room:",this.game)
-					this.game.status= 1
+					// console.log("add room:",this.game)
 					this.game.sync.schema.maxUser=200
 					this.game.createMap();
 					this.game.update();
+					this.game.status= 1
 					// this.game.sync.obj.store.maxUser=0
 					console.log("add room end")
 				});

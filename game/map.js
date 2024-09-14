@@ -10,8 +10,8 @@ var structs = {
 var Map = function (game, data) {
 	this.game = game;
 	this.structID = 1;
-	console.log("game", game)
-	console.log("data", data)
+	// console.log("game", game)
+	// console.log("data", data)
 	if (data) {
 		this.type = data.type;
 		this.w = data.w;
