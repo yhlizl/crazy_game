@@ -296,9 +296,9 @@ Game.prototype.update = function () {
 	if (this.users.length <= 1) {
 		for (let user of this.users) {
 			if (!user.dead) {
-				console.log("who is winner",user)
-				this.win(user.name);
-				this.status = C.GAME_STATUS_OVER
+				console.log("who is winner",user.id, user.name)
+				// this.win(user.name);
+				this.status = C.GAME_STATUS_PAUSE
 			}
 		}
 	}

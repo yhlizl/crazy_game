@@ -63,6 +63,7 @@ var socket = {
 
     // 傳送訊息
     emit: function (name, data) {
+		console.log("emit",name,data)
         if (!this.open) {
             this.queueData.push({name: name, data: data});
         } else {

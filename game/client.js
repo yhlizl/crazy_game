@@ -59,12 +59,15 @@ Client.prototype.connect = function () {
 	var socket = this.socket;
 	//接收初始化資料
 	socket.on('init', data => {
+		console.log("init", data);
 		//admin
 		if (data.code != undefined) {
+			console.log("admin code:", data.code);
 			if (data.code != this.game.adminCode) {
+				console.log("admin fail");
 				socket.emit('initFail');
 				return;
-			} else {
+			} else {	
 				this.admin = true;
 				socket.on('createItem', type => {
 					var item = this.game.createItem(type);
@@ -95,6 +98,8 @@ Client.prototype.connect = function () {
 					console.log("add room:",this.game)
 					this.game.status= 1
 					this.game.sync.schema.maxUser=200
+					this.game.createMap();
+					this.game.update();
 					// this.game.sync.obj.store.maxUser=0
 					console.log("add room end")
 				});
