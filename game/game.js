@@ -47,9 +47,7 @@ var Game = function (adminCode, maxUser, map, remove) {
 	}, this);
 
 	this.runningTimer = setInterval(() => {
-		if (this.status === C.GAME_STATUS_RUNNING) {
-			this.update();
-		}
+		this.update();
 	}, 17);
 }
 
