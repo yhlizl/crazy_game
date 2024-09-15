@@ -12,7 +12,7 @@ var Door = function (game, data) {
 		type: "door",
 		x: data.x,
 		y: data.y,
-		message: "AI傳送門，使用空格鍵開啟/關閉",
+		// message: "AI傳送門，使用空格鍵開啟/關閉",
 		working: 0, //執行
 		workingTime: data.workingTime || 80, //工作耗時
 		coolingTime: data.coolingTime || 2000, //冷卻耗時
