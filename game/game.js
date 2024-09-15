@@ -83,7 +83,7 @@ Game.prototype.createMap = function () {
 }
 // todo remove
 Game.prototype.createNPC = function (data) {
-	data = data || {name: "萌萌的AI", npc: true, AI: "auto"};
+	data = data || {name: "煞氣a羅油膩", npc: true, AI: "auto"};
 	var u = new User(this, data);
 	if (!this.map) {
 		u.x = data.x;

@@ -34,7 +34,7 @@ Door.prototype.act = function () {
 	this.opening = !this.opening;
 }
 Door.prototype.createMob = function () {
-	var npc = this.game.createNPC({name: "萌萌的AI", npc: true, AI: "auto"});
+	var npc = this.game.createNPC({name: "煞氣a羅油膩", npc: true, AI: "auto"});
 	npc.x = (this.x + .5) * C.TW;
 	npc.y = (this.y + .5) * C.TH;
 	return npc;
