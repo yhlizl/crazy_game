@@ -252,14 +252,14 @@ User.prototype.update = function () {
 		} else if (this.downDown && !this.upDown && this.y > this.pilla.y1*C.TH + 3) {
 			this.y -= 3;
 		}
-		if (this.leftPress) {
+		if (this.leftDown) {
 			if (this.faceing != -1) {
 				this.faceing = -1;
 			} else {
 				this.vx = -2;
 				this.onPilla = false;
 			}
-		} else if (this.rightPress) {
+		} else if (this.rightDown) {
 			if (this.faceing != 1) {
 				this.faceing = 1;
 			} else {
