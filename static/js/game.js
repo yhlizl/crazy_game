@@ -466,7 +466,7 @@ function drawStruct (ctx, struct) {
 		if (!imgs.itemGate.complete) {return false}
 		ctx.drawImage(imgs.itemGate, struct.x * C.TW, P.h - (struct.y+1)*C.TH, C.TW, C.TH);
 	} else {
-		// drawDoor(ctx, struct);
+		drawDoor(ctx, struct);
 	}
 	return true;
 }

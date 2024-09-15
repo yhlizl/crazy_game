@@ -40,8 +40,8 @@ var Map = function (game, data) {
 	} else {
 		this.type = "world";
 		//random map
-		var w = this.w = 40;
-		var h = this.h = 30;
+		var w = this.w = 30;
+		var h = this.h = 20;
 		this.floor = [];
 		this.pilla = [];
 		this.hooks = {};

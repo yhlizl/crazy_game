@@ -15,8 +15,8 @@ var AIController = require('./ai/AIController.js');
 var DataSync = require('./lib/DataSync.js');
 
 var Game = function (adminCode, maxUser, map, remove) {
-	// this.status = C.GAME_STATUS_INIT;
-	this.status = C.GAME_STATUS_PAUSE;
+	this.status = C.GAME_STATUS_INIT;
+	// this.status = C.GAME_STATUS_PAUSE;
 	this.adminCode = adminCode;
 	this.mapConfig = map;
 	//其他人
@@ -293,15 +293,15 @@ Game.prototype.update = function () {
 	this.clean();
 
 	// win
-	if (this.users.length <= 1) {
-		for (let user of this.users) {
-			if (!user.dead) {
-				console.log("who is winner",user.id, user.name)
-				// this.win(user.name);
-				this.status = C.GAME_STATUS_PAUSE
-			}
-		}
-	}
+	// if (this.users.length <= 1) {
+	// 	for (let user of this.users) {
+	// 		if (!user.dead) {
+	// 			console.log("who is winner",user.id, user.name)
+	// 			// this.win(user.name);
+	// 			this.status = C.GAME_STATUS_PAUSE
+	// 		}
+	// 	}
+	// }
 
 }
 Game.prototype.clean = function () {
