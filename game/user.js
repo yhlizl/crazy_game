@@ -141,7 +141,7 @@ User.prototype.getStatus = function () {
 					return "rolling2";
 				}
 				
-			} else if (this.itemPress && this.vx == 0 && this.carry == Pack.items.mine.id && this.carryCount > 0) {
+			} else if (this.itemDown && this.vx == 0 && this.carry == Pack.items.mine.id && this.carryCount > 0) {
 				this.mining = 20;
 				return 'mining';
 			} else {
@@ -213,7 +213,7 @@ User.prototype.update = function () {
 				}
 				this.game.checkShot(this);
 			}
-		} else if (this.itemPress && this.carry == Pack.items.gun.id && this.carryCount > 0) {
+		} else if (this.itemDown && this.carry == Pack.items.gun.id && this.carryCount > 0) {
 			this.fireing = 25;
 		}
 	} else {
@@ -232,7 +232,7 @@ User.prototype.update = function () {
 			if (this.carryCount == 0) {
 				this.carry = 0;
 			}
-		} else if (this.grenadeing == 0 && this.itemPress && this.carry == Pack.items.grenade.id && this.carryCount > 0) {
+		} else if (this.grenadeing == 0 && this.itemDown && this.carry == Pack.items.grenade.id && this.carryCount > 0) {
 			this.grenadeing = 1;
 		}
 	} else {
